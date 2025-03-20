@@ -1,9 +1,9 @@
 #
 # To learn more about a Podspec see http://guides.cocoapods.org/syntax/podspec.html.
-# Run `pod lib lint nb_utils.podspec` to validate before publishing.
+# Run `pod lib lint dev_utils.podspec` to validate before publishing.
 #
 Pod::Spec.new do |s|
-  s.name             = 'nb_utils'
+  s.name             = 'dev_utils'
   s.version          = '0.0.1'
   s.summary          = 'Collection of Widgets and helpful Methods that every developer needs.'
   s.description      = <<-DESC

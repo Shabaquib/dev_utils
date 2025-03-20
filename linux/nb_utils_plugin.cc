@@ -1,4 +1,4 @@
-#include "include/nb_utils/nb_utils_plugin.h"
+#include "include/dev_utils/dev_utils_plugin.h"
 
 #include <flutter_linux/flutter_linux.h>
 #include <gtk/gtk.h>
@@ -6,21 +6,21 @@
 
 #include <cstring>
 
-#include "nb_utils_plugin_private.h"
+#include "dev_utils_plugin_private.h"
 
-#define NB_UTILS_PLUGIN(obj) \
-  (G_TYPE_CHECK_INSTANCE_CAST((obj), nb_utils_plugin_get_type(), \
-                              NbUtilsPlugin))
+#define dev_utils_PLUGIN(obj) \
+  (G_TYPE_CHECK_INSTANCE_CAST((obj), dev_utils_plugin_get_type(), \
+                              DevUtilsPlugin))
 
-struct _NbUtilsPlugin {
+struct _DevUtilsPlugin {
   GObject parent_instance;
 };
 
-G_DEFINE_TYPE(NbUtilsPlugin, nb_utils_plugin, g_object_get_type())
+G_DEFINE_TYPE(DevUtilsPlugin, dev_utils_plugin, g_object_get_type())
 
 // Called when a method call is received from Flutter.
-static void nb_utils_plugin_handle_method_call(
-    NbUtilsPlugin* self,
+static void dev_utils_plugin_handle_method_call(
+    DevUtilsPlugin* self,
     FlMethodCall* method_call) {
   g_autoptr(FlMethodResponse) response = nullptr;
 
@@ -43,30 +43,30 @@ FlMethodResponse* get_platform_version() {
   return FL_METHOD_RESPONSE(fl_method_success_response_new(result));
 }
 
-static void nb_utils_plugin_dispose(GObject* object) {
-  G_OBJECT_CLASS(nb_utils_plugin_parent_class)->dispose(object);
+static void dev_utils_plugin_dispose(GObject* object) {
+  G_OBJECT_CLASS(dev_utils_plugin_parent_class)->dispose(object);
 }
 
-static void nb_utils_plugin_class_init(NbUtilsPluginClass* klass) {
-  G_OBJECT_CLASS(klass)->dispose = nb_utils_plugin_dispose;
+static void dev_utils_plugin_class_init(DevUtilsPluginClass* klass) {
+  G_OBJECT_CLASS(klass)->dispose = dev_utils_plugin_dispose;
 }
 
-static void nb_utils_plugin_init(NbUtilsPlugin* self) {}
+static void dev_utils_plugin_init(DevUtilsPlugin* self) {}
 
 static void method_call_cb(FlMethodChannel* channel, FlMethodCall* method_call,
                            gpointer user_data) {
-  NbUtilsPlugin* plugin = NB_UTILS_PLUGIN(user_data);
-  nb_utils_plugin_handle_method_call(plugin, method_call);
+  DevUtilsPlugin* plugin = dev_utils_PLUGIN(user_data);
+  dev_utils_plugin_handle_method_call(plugin, method_call);
 }
 
-void nb_utils_plugin_register_with_registrar(FlPluginRegistrar* registrar) {
-  NbUtilsPlugin* plugin = NB_UTILS_PLUGIN(
-      g_object_new(nb_utils_plugin_get_type(), nullptr));
+void dev_utils_plugin_register_with_registrar(FlPluginRegistrar* registrar) {
+  DevUtilsPlugin* plugin = dev_utils_PLUGIN(
+      g_object_new(dev_utils_plugin_get_type(), nullptr));
 
   g_autoptr(FlStandardMethodCodec) codec = fl_standard_method_codec_new();
   g_autoptr(FlMethodChannel) channel =
       fl_method_channel_new(fl_plugin_registrar_get_messenger(registrar),
-                            "nb_utils",
+                            "dev_utils",
                             FL_METHOD_CODEC(codec));
   fl_method_channel_set_method_call_handler(channel, method_call_cb,
                                             g_object_ref(plugin),

@@ -1,12 +1,12 @@
 import Flutter
 import UIKit
 
-public class NbUtilsPlugin: NSObject, FlutterPlugin {
+public class DevUtilsPlugin: NSObject, FlutterPlugin {
   var packInfo = [String: String]()
 
   public static func register(with registrar: FlutterPluginRegistrar) {
-    let channel = FlutterMethodChannel(name: "nb_utils", binaryMessenger: registrar.messenger())
-    let instance = NbUtilsPlugin()
+    let channel = FlutterMethodChannel(name: "dev_utils", binaryMessenger: registrar.messenger())
+    let instance = DevUtilsPlugin()
     registrar.addMethodCallDelegate(instance, channel: channel)
   }
 

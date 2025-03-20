@@ -1,9 +1,9 @@
 #
 # To learn more about a Podspec see http://guides.cocoapods.org/syntax/podspec.html.
-# Run `pod lib lint nb_utils.podspec` to validate before publishing.
+# Run `pod lib lint dev_utils.podspec` to validate before publishing.
 #
 Pod::Spec.new do |s|
-  s.name             = 'nb_utils'
+  s.name             = 'dev_utils'
   s.version          = '0.0.1'
   s.summary          = 'Collection of Widgets and helpful Methods that every developer needs.'
   s.description      = <<-DESC
@@ -25,5 +25,5 @@ Collection of Widgets and helpful Methods that every developer needs.
   # required reason APIs, update the PrivacyInfo.xcprivacy file to describe your
   # plugin's privacy impact, and then uncomment this line. For more information,
   # see https://developer.apple.com/documentation/bundleresources/privacy_manifest_files
-  # s.resource_bundles = {'nb_utils_privacy' => ['Resources/PrivacyInfo.xcprivacy']}
+  # s.resource_bundles = {'dev_utils_privacy' => ['Resources/PrivacyInfo.xcprivacy']}
 end
