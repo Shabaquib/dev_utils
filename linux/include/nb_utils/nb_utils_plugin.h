@@ -1,5 +1,5 @@
-#ifndef FLUTTER_PLUGIN_NB_UTILS_PLUGIN_H_
-#define FLUTTER_PLUGIN_NB_UTILS_PLUGIN_H_
+#ifndef FLUTTER_PLUGIN_dev_utils_PLUGIN_H_
+#define FLUTTER_PLUGIN_dev_utils_PLUGIN_H_
 
 #include <flutter_linux/flutter_linux.h>
 
@@ -11,16 +11,16 @@ G_BEGIN_DECLS
 #define FLUTTER_PLUGIN_EXPORT
 #endif
 
-typedef struct _NbUtilsPlugin NbUtilsPlugin;
+typedef struct _DevUtilsPlugin DevUtilsPlugin;
 typedef struct {
   GObjectClass parent_class;
-} NbUtilsPluginClass;
+} DevUtilsPluginClass;
 
-FLUTTER_PLUGIN_EXPORT GType nb_utils_plugin_get_type();
+FLUTTER_PLUGIN_EXPORT GType dev_utils_plugin_get_type();
 
-FLUTTER_PLUGIN_EXPORT void nb_utils_plugin_register_with_registrar(
+FLUTTER_PLUGIN_EXPORT void dev_utils_plugin_register_with_registrar(
     FlPluginRegistrar* registrar);
 
 G_END_DECLS
 
-#endif  // FLUTTER_PLUGIN_NB_UTILS_PLUGIN_H_
+#endif  // FLUTTER_PLUGIN_dev_utils_PLUGIN_H_

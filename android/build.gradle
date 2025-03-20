@@ -1,4 +1,4 @@
-group = "com.example.nb_utils"
+group = "com.example.dev_utils"
 version = "1.0-SNAPSHOT"
 
 buildscript {
@@ -26,7 +26,7 @@ apply plugin: "kotlin-android"
 
 android {
     if (project.android.hasProperty("namespace")) {
-        namespace = "com.example.nb_utils"
+        namespace = "com.example.dev_utils"
     }
 
     compileSdk = 35

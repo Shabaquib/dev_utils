@@ -1,10 +1,10 @@
 import Cocoa
 import FlutterMacOS
 
-public class NbUtilsPlugin: NSObject, FlutterPlugin {
+public class DevUtilsPlugin: NSObject, FlutterPlugin {
   public static func register(with registrar: FlutterPluginRegistrar) {
-    let channel = FlutterMethodChannel(name: "nb_utils", binaryMessenger: registrar.messenger)
-    let instance = NbUtilsPlugin()
+    let channel = FlutterMethodChannel(name: "dev_utils", binaryMessenger: registrar.messenger)
+    let instance = DevUtilsPlugin()
     registrar.addMethodCallDelegate(instance, channel: channel)
   }
 
